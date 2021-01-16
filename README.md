@@ -17,11 +17,11 @@ This project requires:
 * Fork this repository
 * Clone your fork
 * Ensure the following gems are within the `:developement, :test do` block:
-   * `gem 'rspec-rails'
-   * `gem 'capybara'
-   * `gem 'pry'
-   * `gem 'shoulda-matchers'
-   * `gem 'simplecov'
+   * `gem 'rspec-rails'`
+   * `gem 'capybara'`
+   * `gem 'pry'`
+   * `gem 'shoulda-matchers'`
+   * `gem 'simplecov'`
    
 * Example:
 ```ruby
@@ -36,9 +36,9 @@ group :development, :test do
 end
 ```
 * Ensure that the following gems exist outside of any blocks: (I like to put them just above the `group :developement, :test do` block:
- * `gem 'faraday'
- * `gem 'figaro'
- * `gem 'fast_jsonapi'
+ * `gem 'faraday'`
+ * `gem 'figaro'`
+ * `gem 'fast_jsonapi'`
  
 * Example:
 ```ruby
