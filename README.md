@@ -66,19 +66,6 @@ From the command line, install the above gems and set up your DB by running:
 - [Capybara](https://github.com/teamcapybara/capybara)
 - [SimpleCov](https://github.com/simplecov-ruby/simplecov)
 
-* Example:
-
-```ruby
-group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem 'rspec-rails'
-  gem 'capybara'
-  gem 'pry'
-  gem 'shoulda-matchers'
-  gem 'simplecov'
-end
-```
 
 ## Authors
 - **Dani Coleman** - *Turing Student* - [GitHub Profile](https://github.com/dcoleman21) - [Turing Alum Profile](https://alumni.turing.io/alumni/dani-coleman) - [LinkedIn](https://www.linkedin.com/in/dcoleman-21/)
