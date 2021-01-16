@@ -52,9 +52,11 @@ group :development, :test do
 ```
 
 From the command line, install the above gems and set up your DB by running:
-    * `bundle install`
-    * `rails db:create`
-    * `rails db:migrate`    
+
+  * `bundle install`
+  * `rails db:create`
+  * `rails db:migrate`  
+  
 * Install Figaro with `bundle exec figaro install` to create an application.yml file locally (this will need to be updated with any needed ENV variables!!!)(example: SOMETHING_API_KEY: 89798273429sadlfj332)
 
 #### Sweater Weather utilizes the following gems and libraries in testing:
