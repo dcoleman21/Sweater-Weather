@@ -7,12 +7,12 @@ class HourlyWeather
               :icon
 
   def initialize(data)
-    @time = convert_to_time(data[0][:dt])
-    @temperature = data[0][:temp]
-    @wind_speed = "#{data[0][:wind_speed]} mph"
-    @wind_direction = "from #{convert_to_cardinal_directions(data[0][:wind_deg])}"
-    @conditions = data[0][:weather][0][:description]
-    @icon = data[0][:weather][0][:icon]
+    @time = convert_to_time(data[:dt])
+    @temperature = data[:temp]
+    @wind_speed = "#{data[:wind_speed]} mph"
+    @wind_direction = "from #{convert_to_cardinal_directions(data[:wind_deg])}"
+    @conditions = data[:weather][0][:description]
+    @icon = data[:weather][0][:icon]
   end
 
   def convert_to_time(unix_timestamp)
