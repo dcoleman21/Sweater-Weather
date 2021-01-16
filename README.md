@@ -1,24 +1,44 @@
-# README
+![](https://img.shields.io/badge/Rails-5.2.4-informational?style=flat&logo=<LOGO_NAME>&logoColor=white&color=2bbc8a) ![](https://img.shields.io/badge/Ruby-2.5.3-orange)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Sweater Weather
 
-Things you may want to cover:
+## About This Project:
 
-* Ruby version
+## Table of Contents
+* [Local Setup](https://github.com/Relocate08/Relocate-Back-End-Rails/blob/main/README.md#local-setup)
+* [Authors](https://github.com/Relocate08/Relocate-Back-End-Rails/blob/main/README.md#authors)
 
-* System dependencies
+## Local Setup:
 
-* Configuration
+This project requires:
+- Ruby 2.5.3.
+- Rails 5.2.4.3
 
-* Database creation
+* Fork this repository
+* Clone your fork
+* From the command line, install gems and set up your DB:
+    * `bundle install`
+    * `rails db:create`
+    * `rails db:migrate`
+* Install Figaro with `bundle exec figaro install` to create an application.yml file locally (this will need to be updated with any needed ENV variables!!!)(example: SOMETHING_API_KEY: 89798273429sadlfj332)
 
-* Database initialization
+#### Sweater Weather utilizes the following gems and libraries in testing:
 
-* How to run the test suite
+- [RSpec](https://github.com/rspec/rspec-rails)
+- [ShouldaMatchers](https://github.com/thoughtbot/shoulda-matchers)
+- [Capybara](https://github.com/teamcapybara/capybara)
+- [SimpleCov](https://github.com/simplecov-ruby/simplecov)
 
-* Services (job queues, cache servers, search engines, etc.)
+* Example:
 
-* Deployment instructions
-
-* ...
+```ruby
+group :development, :test do
+  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'rspec-rails'
+  gem 'capybara'
+  gem 'pry'
+  gem 'shoulda-matchers'
+  gem 'simplecov'
+end
+```
