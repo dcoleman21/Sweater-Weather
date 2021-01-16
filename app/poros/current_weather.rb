@@ -19,8 +19,8 @@ class CurrentWeather
     @humidity = data[:humidity]
     @uvi = data[:uvi]
     @visibility = data[:visibility]
-    @conditions = data[:details][0][:description]
-    @icon = data[:details][0][:icon]
+    @conditions = data[:weather][0][:description]
+    @icon = data[:weather][0][:icon]
   end
 
   def convert_to_datetime(unix_timestamp)
