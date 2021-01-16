@@ -42,3 +42,6 @@ group :development, :test do
   gem 'simplecov'
 end
 ```
+
+## Authors
+- **Dani Coleman** - *Turing Student* - [GitHub Profile](https://github.com/dcoleman21) - [Turing Alum Profile](https://alumni.turing.io/alumni/dani-coleman) - [LinkedIn](https://www.linkedin.com/in/dcoleman-21/)
