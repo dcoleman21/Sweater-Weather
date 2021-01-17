@@ -18,7 +18,7 @@ describe " Forecast API" do
       expect(response).to be_successful
       expect(response.status).to eq(200)
       forecast = JSON.parse(response.body, symbolize_names: true)
-      # require "pry"; binding.pry
+    
       expect(forecast).to be_a(Hash)
 
       expect(forecast).to have_key(:data)
@@ -57,9 +57,9 @@ describe " Forecast API" do
       # expect(current_forecast[:temperature]).to eq(35.94)
       # expect(current_forecast[:feels_like]).to eq(26.17)
       # expect(current_forecast[:humidity]).to eq(51)
-      expect(current_forecast[:uvi]).to eq(0)
-      expect(current_forecast[:conditions]).to eq('scattered clouds')
-      expect(current_forecast[:icon]).to eq('03n')
+      # expect(current_forecast[:uvi]).to eq(0)
+      # expect(current_forecast[:conditions]).to eq('scattered clouds')
+      # expect(current_forecast[:icon]).to eq('03n')
 
       daily_forecast = forecast[:data][:attributes][:daily_weather]
       expect(daily_forecast).to be_a(Array)
@@ -84,8 +84,8 @@ describe " Forecast API" do
       # TESTING LIVE DATA FROM POSTMAN
       # expect(daily_forecast.first[:max_temp]).to eq(44.22)
       # expect(daily_forecast.first[:min_temp]).to eq(34.23)
-      expect(daily_forecast.first[:conditions]).to eq('clear sky')
-      expect(daily_forecast.first[:icon]).to eq('01d')
+      # expect(daily_forecast.first[:conditions]).to eq('clear sky')
+      # expect(daily_forecast.first[:icon]).to eq('01d')
 
       hourly_forecast = forecast[:data][:attributes][:hourly_weather]
       expect(hourly_forecast).to be_a(Array)
@@ -108,8 +108,8 @@ describe " Forecast API" do
       # TESTING LIVE DATA FROM POSTMAN
       # expect(hourly_forecast.first[:temperature]).to eq(36.36)
       # expect(hourly_forecast.first[:wind_speed]).to eq('3.85 mph')
-      expect(hourly_forecast.first[:wind_direction]).to eq('from S')
-      expect(hourly_forecast.first[:conditions]).to eq('scattered clouds')
+      # expect(hourly_forecast.first[:wind_direction]).to eq('from S')
+      # expect(hourly_forecast.first[:conditions]).to eq('scattered clouds')
       # expect(hourly_forecast.first[:icon]).to eq('04n')
     end
 end
