@@ -82,8 +82,8 @@ describe " Forecast API" do
       expect(current_forecast).to_not have_key(:clouds)
       expect(current_forecast).to_not have_key(:pressure)
       # TESTING LIVE DATA FROM POSTMAN
-      expect(daily_forecast.first[:max_temp]).to eq(44.22)
-      expect(daily_forecast.first[:min_temp]).to eq(34.23)
+      # expect(daily_forecast.first[:max_temp]).to eq(44.22)
+      # expect(daily_forecast.first[:min_temp]).to eq(34.23)
       expect(daily_forecast.first[:conditions]).to eq('clear sky')
       expect(daily_forecast.first[:icon]).to eq('01d')
 
