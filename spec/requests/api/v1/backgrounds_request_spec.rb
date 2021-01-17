@@ -1,9 +1,9 @@
 require 'rails_helper'
 
-describe  "Background Image" do
+describe  "Background Image API" do
   it "can fetch a background image for that page showing the city" do
     get '/api/v1/backgrounds?location=arvada,co'
-    
+
     expect(response).to be_successful
     image = JSON.parse(response.body, symbolize_names: true)
 
