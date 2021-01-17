@@ -8,7 +8,7 @@ class MapService
   end
 
   def self.conn
-    Faraday.new("http://www.mapquestapi.com/") do |f|
+    Faraday.new("http://www.mapquestapi.com") do |f|
       f.params['key'] = ENV['MAP_QUEST_KEY']
     end
   end
