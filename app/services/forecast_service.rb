@@ -7,7 +7,7 @@ class ForecastService
       request.params['units'] = 'imperial'
     end
     JSON.parse(response.body, symbolize_names: true)
-    #returns payload that I see on Postman
+    #returns entire payload from openweather api
   end
 
   def self.conn
