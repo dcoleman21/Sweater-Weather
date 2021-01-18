@@ -10,7 +10,7 @@ class HourlyWeather
     @time = convert_to_time(data[:dt])
     @temperature = data[:temp]
     @wind_speed = "#{data[:wind_speed]} mph"
-    @wind_direction = "from #{convert_to_cardinal_directions(data[:wind_deg])}"
+    @wind_direction = "from #{cardinal_directions(data[:wind_deg])}"
     @conditions = data[:weather][0][:description]
     @icon = data[:weather][0][:icon]
   end
@@ -19,7 +19,7 @@ class HourlyWeather
     Time.at(unix_timestamp).strftime('%H:%M:%S')
   end
 
-  def convert_to_cardinal_directions(degrees)
+  def cardinal_directions(degrees)
     case degrees
     when 348.75..360
       'N'
