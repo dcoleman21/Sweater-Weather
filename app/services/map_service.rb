@@ -9,11 +9,7 @@ class MapService
   end
 
   def self.parse_lat_lng(response)
-    if response[:results][0][:locations].empty?
-      {lat: 'no match', lng: 'no match'}
-    else
-      response[:results][0][:locations][0][:latLng]
-    end
+    response[:results][0][:locations][0][:latLng]
   end
 
   def self.route(origin, destination)
