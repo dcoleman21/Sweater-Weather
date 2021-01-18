@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe 'Forecast Poro' do
-  it "can create forecast objecst" do
+  it "can create forecast objects" do
     raw_data = File.read('spec/fixtures/weather_data_arvada.json')
     parsed_data = JSON.parse(raw_data, symbolize_names: true)
 
