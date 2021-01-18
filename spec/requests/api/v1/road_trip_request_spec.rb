@@ -24,23 +24,143 @@ describe "Road Trip API" do
         "api_key": api_key #70be3a7c67bf3b80453d64b3ee3eb857
       }
 
-      distance_body = File.read('spec/fixtures/route_data_arvada_apollo_beach.json')
-      stub_request(:get, "#{ENV['MAP_QUEST_URL']}directions/v2/route?key=#{ENV['MAP_QUEST_KEY']}&from=#{origin}&to=#{destination}").to_return(status: 200, body: distance_body, headers: {})
+      post "/api/v1/road_trip", headers: headers, params: JSON.generate(request_body)
 
-      coordinate_body = File.read('spec/fixtures/route_data_apollo_beach.json')
-      stub_request(:get, "#{ENV['MAP_QUEST_URL']}geocoding/v1/address?key=#{ENV['MAP_QUEST_KEY']}&location=#{destination}").to_return(status: 200, body: coordinate_body, headers: {})
+      expect(response).to be_successful
+      expect(response.status).to eq(200)
+      roadtrip = JSON.parse(response.body, symbolize_names: true)
 
-      weather_body = File.read('spec/fixtures/weather_data_apollo_beach.json')
-      stub_request(:get, "#{ENV['OPEN_WEATHER_URL']}onecall?appid=#{ENV['OPEN_WEATHER_KEY']}&exclude=minutely,alerts&lat=27.763584&lon=-82.40031&units=imperial").to_return(status: 200, body: weather_body, headers: {})
+      expect(roadtrip).to be_a(Hash)
+      expect(roadtrip).to have_key(:data)
+      expect(roadtrip[:data]).to be_a(Hash)
+      expect(roadtrip[:data]).to have_key(:id)
+      expect(roadtrip[:data][:id]).to eq(nil)
+      expect(roadtrip[:data]).to have_key(:type)
+      expect(roadtrip[:data][:type]).to be_a(String)
+      expect(roadtrip[:data][:type]).to eq('roadtrip')
+      expect(roadtrip[:data]).to have_key(:attributes)
+      expect(roadtrip[:data][:attributes]).to be_a(Hash)
+
+      trip_attr = roadtrip[:data][:attributes]
+
+      expect(trip_attr).to have_key(:start_city)
+      expect(trip_attr[:start_city]).to be_a(String)
+      expect(trip_attr).to have_key(:end_city)
+      expect(trip_attr[:end_city]).to be_a(String)
+      expect(trip_attr).to have_key(:travel_time)
+      expect(trip_attr[:travel_time]).to be_a(String)
+      expect(trip_attr).to have_key(:weather_at_eta)
+      expect(trip_attr[:weather_at_eta]).to be_a(Hash)
+      expect(trip_attr[:weather_at_eta]).to have_key(:temperature)
+      expect(trip_attr[:weather_at_eta][:temperature]).to be_a(Numeric)
+      expect(trip_attr[:weather_at_eta]).to have_key(:conditions)
+      expect(trip_attr[:weather_at_eta][:conditions]).to be_a(String)
+    end
+
+    it "returns 'impossible route' if the travel time is impossible in JSON format" do
+      origin = 'New York, NY'
+      destination = 'Perth, AUS'
+      api_key = SecureRandom.hex
+
+      User.create!( email: 'dani@example.com',
+                    password: '1234',
+                    password_confirmation: '1234',
+                    api_key: api_key
+                  )
+
+      headers = {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      }
+
+      request_body = {
+        "origin": origin,
+        "destination": destination,
+        "api_key": api_key #70be3a7c67bf3b80453d64b3ee3eb857
+      }
 
       post "/api/v1/road_trip", headers: headers, params: JSON.generate(request_body)
 
       expect(response).to be_successful
       expect(response.status).to eq(200)
+      roadtrip = JSON.parse(response.body, symbolize_names: true)
+      trip_attr = roadtrip[:data][:attributes]
 
+      expect(trip_attr).to have_key(:start_city)
+      expect(trip_attr[:start_city]).to be_a(String)
+      expect(trip_attr).to have_key(:end_city)
+      expect(trip_attr[:end_city]).to be_a(String)
+      expect(trip_attr).to have_key(:travel_time)
+      expect(trip_attr[:travel_time]).to eq("impossible route")
+      expect(trip_attr).to have_key(:weather_at_eta)
+      expect(trip_attr[:weather_at_eta]).to eq(nil)
+    end
+  end
+
+  describe "sad path" do
+    it "can return 401 if request is sent without an api_key" do
+      origin = 'Boulder, CO'
+      destination = 'Estes Park, CO'
+      api_key = SecureRandom.hex
+
+      User.create!( email: 'dani@example.com',
+                    password: '1234',
+                    password_confirmation: '1234',
+                    api_key: api_key
+                  )
+
+      headers = {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      }
+
+      request_body = {
+        "origin": origin,
+        "destination": destination
+      }
+
+      post "/api/v1/road_trip", headers: headers, params: JSON.generate(request_body)
+
+      expect(response).to_not be_successful
+      expect(response.status).to eq(401)
       parsed = JSON.parse(response.body, symbolize_names: true)
-      require "pry"; binding.pry
 
+      expect(parsed).to be_a(Hash)
+      expect(parsed).to have_key(:error)
+      expect(parsed[:error]).to eq("Unable To Authenticate")
+    end
+
+    it "can return 401 if request is sent wrong an api_key" do
+      origin = 'Boulder, CO'
+      destination = 'Estes Park, CO'
+      api_key = SecureRandom.hex
+
+      User.create!( email: 'dani@example.com',
+                    password: '1234',
+                    password_confirmation: '1234',
+                    api_key: api_key
+                  )
+
+      headers = {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      }
+
+      request_body = {
+        "origin": origin,
+        "destination": destination,
+        "api_key": '8fc5df71328827c3de4bdc'
+      }
+
+      post "/api/v1/road_trip", headers: headers, params: JSON.generate(request_body)
+
+      expect(response).to_not be_successful
+      expect(response.status).to eq(401)
+      parsed = JSON.parse(response.body, symbolize_names: true)
+
+      expect(parsed).to be_a(Hash)
+      expect(parsed).to have_key(:error)
+      expect(parsed[:error]).to eq("Unable To Authenticate")
     end
   end
 end
