@@ -1,6 +1,5 @@
 class UserFacade
   def self.auth_key(key)
-    require "pry"; binding.pry
     User.find_by(api_key: key)
   end
 
