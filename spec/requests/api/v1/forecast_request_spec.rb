@@ -18,7 +18,7 @@ describe " Forecast API" do
       expect(response).to be_successful
       expect(response.status).to eq(200)
       forecast = JSON.parse(response.body, symbolize_names: true)
-    
+
       expect(forecast).to be_a(Hash)
 
       expect(forecast).to have_key(:data)
@@ -39,9 +39,9 @@ describe " Forecast API" do
       expect(current_forecast).to have_key(:sunset)
       expect(current_forecast[:sunset]).to be_a(String)
       expect(current_forecast).to have_key(:temperature)
-      expect(current_forecast[:temperature]).to be_a(Float)
+      expect(current_forecast[:temperature]).to be_a(Numeric)
       expect(current_forecast).to have_key(:feels_like)
-      expect(current_forecast[:feels_like]).to be_a(Float)
+      expect(current_forecast[:feels_like]).to be_a(Numeric)
       expect(current_forecast).to have_key(:humidity)
       expect(current_forecast[:humidity]).to be_a(Numeric)
       expect(current_forecast).to have_key(:uvi)
@@ -71,9 +71,9 @@ describe " Forecast API" do
       expect(daily_forecast.first).to have_key(:sunset)
       expect(daily_forecast.first[:sunset]).to be_a(String)
       expect(daily_forecast.first).to have_key(:max_temp)
-      expect(daily_forecast.first[:max_temp]).to be_a(Float)
+      expect(daily_forecast.first[:max_temp]).to be_a(Numeric)
       expect(daily_forecast.first).to have_key(:min_temp)
-      expect(daily_forecast.first[:min_temp]).to be_a(Float)
+      expect(daily_forecast.first[:min_temp]).to be_a(Numeric)
       expect(daily_forecast.first).to have_key(:conditions)
       expect(daily_forecast.first[:conditions]).to be_a(String)
       expect(daily_forecast.first).to have_key(:icon)
@@ -93,7 +93,7 @@ describe " Forecast API" do
       expect(hourly_forecast.first).to have_key(:time)
       expect(hourly_forecast.first[:time]).to be_a(String)
       expect(hourly_forecast.first).to have_key(:temperature)
-      expect(hourly_forecast.first[:temperature]).to be_a(Float)
+      expect(hourly_forecast.first[:temperature]).to be_a(Numeric)
       expect(hourly_forecast.first).to have_key(:wind_speed)
       expect(hourly_forecast.first[:wind_speed]).to be_a(String)
       expect(hourly_forecast.first).to have_key(:wind_direction)
