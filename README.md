@@ -136,9 +136,9 @@ bundle exec rspec
 2. You will also at times need to run `rails s` in your command line so that you can test that call in Postman.
   * Example: in Postman run `GET` `http://localhost:3000/api/v1/forecast?location=arvada,co` to see the serialized response for that endpoint.
  
+ ###  ```GET /forecast``` - weather for location
+ 
 <img width="855" alt=" Landing Page" src="https://user-images.githubusercontent.com/60626984/105092563-a107ca00-5a5e-11eb-895e-1d02915cc60f.png"> 
-
-###  ```GET /forecast``` - weather for location
   
 * Request Example:
 ```ruby
@@ -225,9 +225,9 @@ bundle exec rspec
   }
 ```
 
-<img width="1087" alt="User Registration" src="https://user-images.githubusercontent.com/60626984/105092732-e0361b00-5a5e-11eb-88be-665503a5cd8d.png">
-
 ### ```POST /users``` - create new user
+
+<img width="1087" alt="User Registration" src="https://user-images.githubusercontent.com/60626984/105092732-e0361b00-5a5e-11eb-88be-665503a5cd8d.png">
 
 Returns JSON information of newly created user. Must pass parameters in body in json format. See example below. Returns appropriate 400-status code if user is not created in system.
 
@@ -260,9 +260,9 @@ Response Example:
 
 Use Postman, under the address bar, click on “Body”, select “raw”, which will show a dropdown that probably says “Text” in it, choose “JSON” from the list and paste the hash with email, password and password_confirmation inside before hitting send.
 
-<img width="1087" alt="Login" src="https://user-images.githubusercontent.com/60626984/105092796-f47a1800-5a5e-11eb-813a-6da822e2a8b1.png">
-
 ### ```POST /sessions``` - user authentication
+
+<img width="1087" alt="Login" src="https://user-images.githubusercontent.com/60626984/105092796-f47a1800-5a5e-11eb-813a-6da822e2a8b1.png">
 
 Returns JSON information of existing user if user exists and their password is correct. Must pass parameters in body in json format. See example below. Returns appropriate 400-status code if user's credentials are incorrect.
 
@@ -294,10 +294,9 @@ Response Example:
 
 Use Postman, under the address bar, click on “Body”, select “raw”, which will show a dropdown that probably says “Text” in it, choose “JSON” from the list and paste the hash with email, password and password_confirmation inside before hitting send.
 
+### ```POST /road_trip``` - road trip information
 
 <img width="957" alt="Road Trip" src="https://user-images.githubusercontent.com/60626984/105092843-05c32480-5a5f-11eb-9cee-961246bda964.png">
-
-### ```POST /road_trip``` - road trip information
 
 Returns JSON information of road trip. Weather data returned is the predicted temperature and conditions when arriving at destination. Must pass parameters in body in json format. See example below. Returns 401 code if api_key is incorrect.
 
