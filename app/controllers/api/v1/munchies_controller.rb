@@ -20,7 +20,7 @@ class Api::V1::MunchiesController < ApplicationController
     restaurant = JSON.parse(response.body, symbolize_names: true)
     travel_time = MapFacade.time_between_locations(start_city, destination_city)
     forecast = ForecastFacade.forecast_by_coords(destination_city)
-    Munchie.new(destination_city, travel_time, forecast, restaurant)
+    munchies = Munchie.new(destination_city, travel_time, forecast, restaurant)
     render json: MunchieSerializer.new(munchies)
   end
 
