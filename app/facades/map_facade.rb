@@ -4,11 +4,11 @@ class MapFacade
   end
 
   def self.time_between_locations(origin, destination)
-    result = MapService.route(origin, destination)
-    if result[:info][:statuscode] == 402
+    route_info = MapService.route(origin, destination)
+    if route_info[:info][:statuscode] == 402
       'impossible route'
     else
-      result[:route][:formattedTime]
+      route_info[:route][:formattedTime]
     end
   end
 end
