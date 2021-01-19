@@ -135,6 +135,8 @@ bundle exec rspec
 1. One of the best tools for testing out whether or not your calls are responding the way that you expect is [Postman](https://www.postman.com/). 
 2. You will also at times need to run `rails s` in your command line so that you can test that call in Postman.
   * Example: in Postman run `GET` `http://localhost:3000/api/v1/forecast?location=arvada,co` to see the serialized response for that endpoint.
+ 
+<img width="855" alt=" Landing Page" src="https://user-images.githubusercontent.com/60626984/105092563-a107ca00-5a5e-11eb-895e-1d02915cc60f.png"> 
 
 ###  ```GET /forecast``` - weather for location
   
