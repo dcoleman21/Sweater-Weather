@@ -225,6 +225,8 @@ bundle exec rspec
   }
 ```
 
+<img width="1087" alt="User Registration" src="https://user-images.githubusercontent.com/60626984/105092732-e0361b00-5a5e-11eb-88be-665503a5cd8d.png">
+
 ### ```POST /users``` - create new user
 
 Returns JSON information of newly created user. Must pass parameters in body in json format. See example below. Returns appropriate 400-status code if user is not created in system.
@@ -258,6 +260,8 @@ Response Example:
 
 Use Postman, under the address bar, click on “Body”, select “raw”, which will show a dropdown that probably says “Text” in it, choose “JSON” from the list and paste the hash with email, password and password_confirmation inside before hitting send.
 
+<img width="1087" alt="Login" src="https://user-images.githubusercontent.com/60626984/105092796-f47a1800-5a5e-11eb-813a-6da822e2a8b1.png">
+
 ### ```POST /sessions``` - user authentication
 
 Returns JSON information of existing user if user exists and their password is correct. Must pass parameters in body in json format. See example below. Returns appropriate 400-status code if user's credentials are incorrect.
@@ -289,6 +293,9 @@ Response Example:
 ```
 
 Use Postman, under the address bar, click on “Body”, select “raw”, which will show a dropdown that probably says “Text” in it, choose “JSON” from the list and paste the hash with email, password and password_confirmation inside before hitting send.
+
+
+<img width="957" alt="Road Trip" src="https://user-images.githubusercontent.com/60626984/105092843-05c32480-5a5f-11eb-9cee-961246bda964.png">
 
 ### ```POST /road_trip``` - road trip information
 
