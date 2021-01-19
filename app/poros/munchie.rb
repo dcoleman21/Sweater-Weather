@@ -13,8 +13,8 @@ class Munchie
 
   def weather_at_arrival(forecast)
     {
-      summary: forecast.hourly_weather[1].conditions,
-      temperature: forecast.hourly_weather[1].temperature
+      summary: forecast.current_weather.conditions,
+      temperature: forecast.current_weather.temperature
     }
   end
 
