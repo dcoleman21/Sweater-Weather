@@ -1,8 +1,9 @@
 class Api::V1::MunchiesController < ApplicationController
   def index
-    # start_city = params[:start]
-    # destination_city = params[:end]
-    # food = params[:food]
+    # require "pry"; binding.pry
+    start_city = params[:start]
+    destination_city = params[:end]
+    food = params[:food]
     #
     # conn = Faraday.new(url: "https://api.yelp.com") do |faraday|
     #   faraday.headers['Authorization'] = "Bearer #{ENV['YELP_KEY']}"
@@ -17,13 +18,13 @@ class Api::V1::MunchiesController < ApplicationController
     # travel_time = MapFacade.time_between_locations(start_city, destination_city)
     # forecast = ForecastFacade.forecast_by_coords(destination_city)
     # munchies = Munchie.new(destination_city, travel_time, forecast, restaurant)
-    munchie = MunchieFacade.fetch_restaurant_info(munchie_params)
+    munchie = MunchieFacade.fetch_restaurant_info(start_city, destination_city, food)
     render json: MunchieSerializer.new(munchie)
   end
 
-  private
-  
-  def munchie_params
-    params.permit(:start, :end, :food)
-  end
+  # private
+  #
+  # def munchie_params
+  #   params.permit(:start, :end, :food)
+  # end
 end
