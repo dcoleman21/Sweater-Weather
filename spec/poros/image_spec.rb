@@ -3,7 +3,7 @@ require 'rails_helper'
 describe Image do
   it "can create an image object" do
     location = 'arvada,co'
-    raw_data = File.read('spec/fixtures/image_data_arvade.json')
+    raw_data = File.read('spec/fixtures/image_data_arvada.json')
     parsed_data = JSON.parse(raw_data, symbolize_names: true)
     image_array = parsed_data[:results]
 
