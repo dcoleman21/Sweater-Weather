@@ -3,10 +3,10 @@ require 'rails_helper'
 describe 'Sessions API' do
   describe 'happy path' do
     it 'finds user, confirms identity and returns user info as json' do
-      user = User.create!( email: 'whatever@example.com',
-                    password: 'password',
-                    password_confirmation: 'password',
-                    api_key: SecureRandom.hex )
+      user = User.create!(email: 'whatever@example.com',
+                          password: 'password',
+                          password_confirmation: 'password',
+                          api_key: SecureRandom.hex)
 
       headers = {
         'Content-Type': 'application/json',
@@ -14,12 +14,12 @@ describe 'Sessions API' do
       }
 
       body = {
-        email: "#{user.email}",
-        password: "#{user.password}",
-        password_confirmation: "#{user.password_confirmation}"
+        email: user.email.to_s,
+        password: user.password.to_s,
+        password_confirmation: user.password_confirmation.to_s
       }
 
-      post "/api/v1/sessions", headers: headers, params: JSON.generate(body)
+      post '/api/v1/sessions', headers: headers, params: JSON.generate(body)
 
       expect(response).to be_successful
       expect(response.status).to eq(200)
@@ -40,12 +40,12 @@ describe 'Sessions API' do
     end
   end
 
-  describe "sad path" do
-    it "returns a 400 for incorrect password" do
-      User.create!( email: 'whatever@example.com',
-                    password: 'password',
-                    password_confirmation: 'password',
-                    api_key: SecureRandom.hex )
+  describe 'sad path' do
+    it 'returns a 400 for incorrect password' do
+      User.create!(email: 'whatever@example.com',
+                   password: 'password',
+                   password_confirmation: 'password',
+                   api_key: SecureRandom.hex)
 
       headers = {
         'Content-Type': 'application/json',
@@ -57,7 +57,7 @@ describe 'Sessions API' do
         'password': '1234'
       }
 
-      post "/api/v1/sessions", headers: headers, params: JSON.generate(body)
+      post '/api/v1/sessions', headers: headers, params: JSON.generate(body)
 
       expect(response.status).to eq(400)
 
@@ -69,10 +69,10 @@ describe 'Sessions API' do
     end
 
     it 'returns 400 for incorrect email' do
-      User.create!( email: 'whatever@example.com',
-                    password: 'password',
-                    password_confirmation: 'password',
-                    api_key: SecureRandom.hex )
+      User.create!(email: 'whatever@example.com',
+                   password: 'password',
+                   password_confirmation: 'password',
+                   api_key: SecureRandom.hex)
 
       headers = {
         'Content-Type': 'application/json',
@@ -84,7 +84,7 @@ describe 'Sessions API' do
         'password': 'password'
       }
 
-      post "/api/v1/sessions", headers: headers, params: JSON.generate(body)
+      post '/api/v1/sessions', headers: headers, params: JSON.generate(body)
 
       expect(response.status).to eq(400)
 
