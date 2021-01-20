@@ -1,13 +1,13 @@
 require 'rails_helper'
 
-RSpec.describe UserFacade do
+describe UserFacade do
   describe 'happy path' do
     it 'should find user by api key' do
       api_key = SecureRandom.hex
-      User.create!( email: 'whatever@example.com',
-                    password: 'password',
-                    password_confirmation: 'password',
-                    api_key: api_key )
+      User.create!(email: 'whatever@example.com',
+                   password: 'password',
+                   password_confirmation: 'password',
+                   api_key: api_key)
 
       result = UserFacade.auth_key(api_key)
       expect(result).to be_a(User)
@@ -28,9 +28,9 @@ RSpec.describe UserFacade do
 
     it 'should return a saved user object' do
       params = {
-        "email": "john@example.com",
-        "password": "password",
-        "password_confirmation": "password"
+        "email": 'john@example.com',
+        "password": 'password',
+        "password_confirmation": 'password'
       }
 
       user = UserFacade.create(params)
@@ -43,9 +43,9 @@ RSpec.describe UserFacade do
   describe 'sad path' do
     it 'should return a nil user object for non-matching passwords' do
       params = {
-          "email": "john@example.com",
-          "password": "password",
-          "password_confirmation": "word pass"
+        "email": 'john@example.com',
+        "password": 'password',
+        "password_confirmation": 'word pass'
       }
 
       user = UserFacade.create(params)
@@ -57,15 +57,15 @@ RSpec.describe UserFacade do
     end
 
     it 'should return a nil user object for un-unique email' do
-      User.create!( email: 'whatever@example.com',
-                    password: 'password',
-                    password_confirmation: 'password',
-                    api_key: SecureRandom.hex )
+      User.create!(email: 'whatever@example.com',
+                   password: 'password',
+                   password_confirmation: 'password',
+                   api_key: SecureRandom.hex)
 
       params = {
-          "email": "whatever@example.com",
-          "password": "password",
-          "password_confirmation": "password"
+        "email": 'whatever@example.com',
+        "password": 'password',
+        "password_confirmation": 'password'
       }
 
       user = UserFacade.create(params)
