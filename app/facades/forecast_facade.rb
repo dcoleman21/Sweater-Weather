@@ -1,6 +1,6 @@
 class ForecastFacade
-  def self.forecast_by_coords(location)#"arvada,co"
-    latlng = MapFacade.get_coords_by_location(location)#{:lat=>39.801122, :lng=>-105.081451}
+  def self.forecast_by_coords(location)
+    latlng = MapFacade.get_coords_by_location(location)
     weather_payload = ForecastService.forecast_by_coords(latlng[:lat], latlng[:lng])
     current = CurrentWeather.new(weather_payload[:current])
     daily = daily_forecast(weather_payload[:daily][0..4])
