@@ -1,0 +1,295 @@
+{
+    "info": {
+        "statuscode": 0,
+        "copyright": {
+            "text": "© 2021 MapQuest, Inc.",
+            "imageUrl": "http://api.mqcdn.com/res/mqlogo.gif",
+            "imageAltText": "© 2021 MapQuest, Inc."
+        },
+        "messages": []
+    },
+    "options": {
+        "maxResults": -1,
+        "thumbMaps": true,
+        "ignoreLatLngInput": false
+    },
+    "results": [
+        {
+            "providedLocation": {
+                "location": "Perth, AUS"
+            },
+            "locations": [
+                {
+                    "street": "Perth Street",
+                    "adminArea6": "",
+                    "adminArea6Type": "Neighborhood",
+                    "adminArea5": "Toowoomba",
+                    "adminArea5Type": "City",
+                    "adminArea4": "",
+                    "adminArea4Type": "County",
+                    "adminArea3": "Queensland",
+                    "adminArea3Type": "State",
+                    "adminArea1": "AU",
+                    "adminArea1Type": "Country",
+                    "postalCode": "",
+                    "geocodeQualityCode": "B3CCA",
+                    "geocodeQuality": "STREET",
+                    "dragPoint": false,
+                    "sideOfStreet": "N",
+                    "linkId": "AU/STR/p0/135610",
+                    "unknownInput": "",
+                    "type": "s",
+                    "latLng": {
+                        "lat": -27.57436,
+                        "lng": 151.96477
+                    },
+                    "displayLatLng": {
+                        "lat": -27.57436,
+                        "lng": 151.96477
+                    },
+                    "mapUrl": "http://www.mapquestapi.com/staticmap/v5/map?key=R2mX9Awv6x8S7AdvPLwlfEK71TXOHQHV&type=map&size=225,160&locations=-27.57436,151.96477|marker-sm-50318A-1&scalebar=true&zoom=15&rand=-1167213255"
+                },
+                {
+                    "street": "",
+                    "adminArea6": "",
+                    "adminArea6Type": "Neighborhood",
+                    "adminArea5": "Perth",
+                    "adminArea5Type": "City",
+                    "adminArea4": "",
+                    "adminArea4Type": "County",
+                    "adminArea3": "Western Australia",
+                    "adminArea3Type": "State",
+                    "adminArea1": "AU",
+                    "adminArea1Type": "Country",
+                    "postalCode": "",
+                    "geocodeQualityCode": "A5XAX",
+                    "geocodeQuality": "CITY",
+                    "dragPoint": false,
+                    "sideOfStreet": "N",
+                    "linkId": "AU/GEO/p0/5784",
+                    "unknownInput": "",
+                    "type": "s",
+                    "latLng": {
+                        "lat": -31.95285,
+                        "lng": 115.85731
+                    },
+                    "displayLatLng": {
+                        "lat": -31.95285,
+                        "lng": 115.85731
+                    },
+                    "mapUrl": "http://www.mapquestapi.com/staticmap/v5/map?key=R2mX9Awv6x8S7AdvPLwlfEK71TXOHQHV&type=map&size=225,160&locations=-31.95285,115.85731|marker-sm-50318A-2&scalebar=true&zoom=12&rand=-1251562746"
+                },
+                {
+                    "street": "",
+                    "adminArea6": "",
+                    "adminArea6Type": "Neighborhood",
+                    "adminArea5": "Perth",
+                    "adminArea5Type": "City",
+                    "adminArea4": "",
+                    "adminArea4Type": "County",
+                    "adminArea3": "Tasmania",
+                    "adminArea3Type": "State",
+                    "adminArea1": "AU",
+                    "adminArea1Type": "Country",
+                    "postalCode": "",
+                    "geocodeQualityCode": "A5XAX",
+                    "geocodeQuality": "CITY",
+                    "dragPoint": false,
+                    "sideOfStreet": "N",
+                    "linkId": "AU/GEO/p0/11982",
+                    "unknownInput": "",
+                    "type": "s",
+                    "latLng": {
+                        "lat": -41.57791,
+                        "lng": 147.17657
+                    },
+                    "displayLatLng": {
+                        "lat": -41.57791,
+                        "lng": 147.17657
+                    },
+                    "mapUrl": "http://www.mapquestapi.com/staticmap/v5/map?key=R2mX9Awv6x8S7AdvPLwlfEK71TXOHQHV&type=map&size=225,160&locations=-41.57791,147.17657|marker-sm-50318A-3&scalebar=true&zoom=12&rand=1388059658"
+                },
+                {
+                    "street": "",
+                    "adminArea6": "",
+                    "adminArea6Type": "Neighborhood",
+                    "adminArea5": "Perth",
+                    "adminArea5Type": "City",
+                    "adminArea4": "",
+                    "adminArea4Type": "County",
+                    "adminArea3": "Western Australia",
+                    "adminArea3Type": "State",
+                    "adminArea1": "AU",
+                    "adminArea1Type": "Country",
+                    "postalCode": "",
+                    "geocodeQualityCode": "A5XAX",
+                    "geocodeQuality": "CITY",
+                    "dragPoint": false,
+                    "sideOfStreet": "N",
+                    "linkId": "AU/GEO/p0/6634",
+                    "unknownInput": "",
+                    "type": "s",
+                    "latLng": {
+                        "lat": -31.93274,
+                        "lng": 115.96026
+                    },
+                    "displayLatLng": {
+                        "lat": -31.93274,
+                        "lng": 115.96026
+                    },
+                    "mapUrl": "http://www.mapquestapi.com/staticmap/v5/map?key=R2mX9Awv6x8S7AdvPLwlfEK71TXOHQHV&type=map&size=225,160&locations=-31.93274,115.96026|marker-sm-50318A-4&scalebar=true&zoom=12&rand=1141580984"
+                },
+                {
+                    "street": "",
+                    "adminArea6": "",
+                    "adminArea6Type": "Neighborhood",
+                    "adminArea5": "Perth",
+                    "adminArea5Type": "City",
+                    "adminArea4": "",
+                    "adminArea4Type": "County",
+                    "adminArea3": "Western Australia",
+                    "adminArea3Type": "State",
+                    "adminArea1": "AU",
+                    "adminArea1Type": "Country",
+                    "postalCode": "",
+                    "geocodeQualityCode": "A5XAX",
+                    "geocodeQuality": "CITY",
+                    "dragPoint": false,
+                    "sideOfStreet": "N",
+                    "linkId": "AU/GEO/p0/6686",
+                    "unknownInput": "",
+                    "type": "s",
+                    "latLng": {
+                        "lat": -31.94883,
+                        "lng": 115.84209
+                    },
+                    "displayLatLng": {
+                        "lat": -31.94883,
+                        "lng": 115.84209
+                    },
+                    "mapUrl": "http://www.mapquestapi.com/staticmap/v5/map?key=R2mX9Awv6x8S7AdvPLwlfEK71TXOHQHV&type=map&size=225,160&locations=-31.94883,115.84209|marker-sm-50318A-5&scalebar=true&zoom=12&rand=173410274"
+                },
+                {
+                    "street": "",
+                    "adminArea6": "",
+                    "adminArea6Type": "Neighborhood",
+                    "adminArea5": "Perth",
+                    "adminArea5Type": "City",
+                    "adminArea4": "",
+                    "adminArea4Type": "County",
+                    "adminArea3": "Western Australia",
+                    "adminArea3Type": "State",
+                    "adminArea1": "AU",
+                    "adminArea1Type": "Country",
+                    "postalCode": "",
+                    "geocodeQualityCode": "A5XAX",
+                    "geocodeQuality": "CITY",
+                    "dragPoint": false,
+                    "sideOfStreet": "N",
+                    "linkId": "AU/GEO/p0/6699",
+                    "unknownInput": "",
+                    "type": "s",
+                    "latLng": {
+                        "lat": -31.95285,
+                        "lng": 115.85731
+                    },
+                    "displayLatLng": {
+                        "lat": -31.95285,
+                        "lng": 115.85731
+                    },
+                    "mapUrl": "http://www.mapquestapi.com/staticmap/v5/map?key=R2mX9Awv6x8S7AdvPLwlfEK71TXOHQHV&type=map&size=225,160&locations=-31.95285,115.85731|marker-sm-50318A-6&scalebar=true&zoom=12&rand=-1467918762"
+                },
+                {
+                    "street": "",
+                    "adminArea6": "",
+                    "adminArea6Type": "Neighborhood",
+                    "adminArea5": "Perth",
+                    "adminArea5Type": "City",
+                    "adminArea4": "",
+                    "adminArea4Type": "County",
+                    "adminArea3": "Western Australia",
+                    "adminArea3Type": "State",
+                    "adminArea1": "AU",
+                    "adminArea1Type": "Country",
+                    "postalCode": "",
+                    "geocodeQualityCode": "A5XAX",
+                    "geocodeQuality": "CITY",
+                    "dragPoint": false,
+                    "sideOfStreet": "N",
+                    "linkId": "AU/GEO/p0/6705",
+                    "unknownInput": "",
+                    "type": "s",
+                    "latLng": {
+                        "lat": -31.92769,
+                        "lng": 115.85294
+                    },
+                    "displayLatLng": {
+                        "lat": -31.92769,
+                        "lng": 115.85294
+                    },
+                    "mapUrl": "http://www.mapquestapi.com/staticmap/v5/map?key=R2mX9Awv6x8S7AdvPLwlfEK71TXOHQHV&type=map&size=225,160&locations=-31.92769,115.85294|marker-sm-50318A-7&scalebar=true&zoom=12&rand=41751585"
+                },
+                {
+                    "street": "",
+                    "adminArea6": "",
+                    "adminArea6Type": "Neighborhood",
+                    "adminArea5": "Perth",
+                    "adminArea5Type": "City",
+                    "adminArea4": "",
+                    "adminArea4Type": "County",
+                    "adminArea3": "Western Australia",
+                    "adminArea3Type": "State",
+                    "adminArea1": "AU",
+                    "adminArea1Type": "Country",
+                    "postalCode": "",
+                    "geocodeQualityCode": "A5XAX",
+                    "geocodeQuality": "CITY",
+                    "dragPoint": false,
+                    "sideOfStreet": "N",
+                    "linkId": "AU/GEO/p0/6753",
+                    "unknownInput": "",
+                    "type": "s",
+                    "latLng": {
+                        "lat": -31.95849,
+                        "lng": 115.87162
+                    },
+                    "displayLatLng": {
+                        "lat": -31.95849,
+                        "lng": 115.87162
+                    },
+                    "mapUrl": "http://www.mapquestapi.com/staticmap/v5/map?key=R2mX9Awv6x8S7AdvPLwlfEK71TXOHQHV&type=map&size=225,160&locations=-31.95849,115.87162|marker-sm-50318A-8&scalebar=true&zoom=12&rand=1549031567"
+                },
+                {
+                    "street": "",
+                    "adminArea6": "",
+                    "adminArea6Type": "Neighborhood",
+                    "adminArea5": "Perth",
+                    "adminArea5Type": "City",
+                    "adminArea4": "",
+                    "adminArea4Type": "County",
+                    "adminArea3": "Western Australia",
+                    "adminArea3Type": "State",
+                    "adminArea1": "AU",
+                    "adminArea1Type": "Country",
+                    "postalCode": "",
+                    "geocodeQualityCode": "A5XAX",
+                    "geocodeQuality": "CITY",
+                    "dragPoint": false,
+                    "sideOfStreet": "N",
+                    "linkId": "AU/GEO/p0/6787",
+                    "unknownInput": "",
+                    "type": "s",
+                    "latLng": {
+                        "lat": -31.9818,
+                        "lng": 115.86371
+                    },
+                    "displayLatLng": {
+                        "lat": -31.9818,
+                        "lng": 115.86371
+                    },
+                    "mapUrl": "http://www.mapquestapi.com/staticmap/v5/map?key=R2mX9Awv6x8S7AdvPLwlfEK71TXOHQHV&type=map&size=225,160&locations=-31.9818,115.86371|marker-sm-50318A-9&scalebar=true&zoom=12&rand=-1737256468"
+                }
+            ]
+        }
+    ]
+}

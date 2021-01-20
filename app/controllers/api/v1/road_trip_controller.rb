@@ -9,6 +9,3 @@ class Api::V1::RoadTripController < ApplicationController
     end
   end
 end
-
-
- #<ActionController::Parameters {"origin"=>"Arvada,CO", "destination"=>"Apollo Beach, FL", #"api_key"=>"c48208d116595d67f228add960918893", "controller"=>"api/v1/road_trip", "action"=>"create", #"road_trip"=>{"origin"=>"Arvada,CO", "destination"=>"Apollo Beach, FL", "api_key"=>"c48208d116595d67f228add960918893"}} #permitted: false>

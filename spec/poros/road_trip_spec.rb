@@ -6,7 +6,7 @@ describe 'Road Trip Poro' do
     destination = 'Apollo Beach, FL'
     api_key = SecureRandom.hex
 
-    user = User.create!( email: 'dani@example.com',
+    user = User.create!( email: 'betty@example.com',
                   password: '1234',
                   password_confirmation: '1234',
                   api_key: api_key
