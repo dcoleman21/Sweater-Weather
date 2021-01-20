@@ -18,7 +18,8 @@ Sweater Weather is the back-end portion of a hypothetical application to plan ro
   - [POST Users](#post-users---create-new-user)
   - [POST Sessions](#post-sessions---user-authentication)
   - [POST Road Trip](#post-road_trip---road-trip-information)
-- [Authors](https://github.com/dcoleman21/Sweater-Weather/blob/main/README.md#authors)
+- [Authors](#authors)
+- [My Testing Coverage](#my-testing-coverage)
 
 ## Learning Goals:
 
@@ -335,6 +336,10 @@ Response Example:
 ```
 
 Use Postman, under the address bar, click on “Body”, select “raw”, which will show a dropdown that probably says “Text” in it, choose “JSON” from the list and paste the hash with origin, destination, api_key inside before hitting send.
+
+## My Testing Coverage
+
+<img width="605" alt="Screen Shot 2021-01-19 at 7 14 23 PM" src="https://user-images.githubusercontent.com/60626984/105117992-babf0680-5a8a-11eb-8fd9-8287811bbce4.png">
 
 ## Authors
 - **Dani Coleman** - *Turing Student* - [GitHub Profile](https://github.com/dcoleman21) - [Turing Alum Profile](https://alumni.turing.io/alumni/dani-coleman) - [LinkedIn](https://www.linkedin.com/in/dcoleman-21/)
