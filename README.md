@@ -4,7 +4,7 @@
 
 ## About This Project:
 
-Sweater Weather is the back-end portion of a hypothetical application to plan road trips. This project is part of a service-oriented architecture design pattern where the front-end would communicate with this back-end portion through an API. The main responsibility of this project is to expose the API in a way that fulfills the front-ends needs/requirements. Ultimately, this app will allow users to see the current weather as well as the forecasted weather at the destination of their choosen road trip.  
+Sweater Weather is the back-end portion of a hypothetical application to plan road trips. This project is part of a service-oriented architecture design pattern where the front-end would communicate with this back-end portion through an API. The main responsibility of this project is to expose the API in a way that fulfills the front-ends needs/requirements. Ultimately, this app will allow users to see the current weather as well as the forecasted weather at the destination of their desired road trip.  
 
 ## Table of Contents
 - [Learning Goals](#learning-goals)
@@ -99,7 +99,7 @@ You will need to read through the documentation and get `api_keys` from the foll
 
   * [MapQuest's Geocoding API](https://developer.mapquest.com/documentation/geocoding-api/)
   * [OpenWeather One Call API](https://openweathermap.org/api/one-call-api)
-  * For Enpoints #2, you will need to chose an API that gives you access to photos 
+  * For Endpoints #2, you will need to choose an API that gives you access to photos 
 
 Once you have successfully received your `api_keys`, you will want to store them as `Environment Variables` in your `/config/.application.yml` file. To generate that file:
 
@@ -128,7 +128,7 @@ bundle exec rspec
 
 
 
-## Enpoints
+## Endpoints
 
 ### Testing Tools
 
