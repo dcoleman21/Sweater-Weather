@@ -1,16 +1,17 @@
 require 'rails_helper'
 describe ImageService do
-  it "returns image data for location in json" do
+  it 'returns image data for location in json' do
     json2 = File.read('spec/fixtures/image_data_arvada.json')
-    stub_request(:get, "https://api.unsplash.com/search/photos?client_id=#{ENV['IMAGE_KEY']}&page=1&per_page=1&query=arvada,co").
-        with(
-          headers: {
-         'Accept'=>'*/*',
-         'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
-         'Content-Type'=>'application/json',
-         'User-Agent'=>'Faraday v1.3.0'
-          }).
-        to_return(status: 200, body: json2, headers: {})
+    stub_request(:get, "https://api.unsplash.com/search/photos?client_id=#{ENV['IMAGE_KEY']}&page=1&per_page=1&query=arvada,co")
+      .with(
+        headers: {
+          'Accept' => '*/*',
+          'Accept-Encoding' => 'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
+          'Content-Type' => 'application/json',
+          'User-Agent' => 'Faraday v1.3.0'
+        }
+      )
+      .to_return(status: 200, body: json2, headers: {})
 
     location = 'arvada,co'
 

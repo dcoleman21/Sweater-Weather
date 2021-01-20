@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 describe ForecastService do
-  describe "happy paths" do
-    it "can get the forecast for with lat and lon" do
+  describe 'happy paths' do
+    it 'can get the forecast for with lat and lon' do
       json2 = File.read('spec/fixtures/weather_data_arvada.json')
       stub_request(:get, "https://api.openweathermap.org/data/2.5/onecall?appid=#{ENV['OPEN_WEATHER_KEY']}&lat=39.801122&lon=-105.081451&units=imperial&exclude=minutely,alerts")
         .to_return(status: 200, body: json2, headers: {})
