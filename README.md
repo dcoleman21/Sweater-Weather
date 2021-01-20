@@ -4,7 +4,7 @@
 
 ## About This Project:
 
-Sweater Weather is the back-end portion of a hypothetical applicition to plan road trips. This project is part of a service-oriented architecture design pattern where the front-end would communicate with this back-end portion through an API. The main responsibility of this project is to expose the API in a way that fulfills the front-ends needs/requirements. Ultimately, this app will allow users to see the current weather as well as the forecasted weather at the destination of their choosen road trip.  
+Sweater Weather is the back-end portion of a hypothetical application to plan road trips. This project is part of a service-oriented architecture design pattern where the front-end would communicate with this back-end portion through an API. The main responsibility of this project is to expose the API in a way that fulfills the front-ends needs/requirements. Ultimately, this app will allow users to see the current weather as well as the forecasted weather at the destination of their choosen road trip.  
 
 ## Table of Contents
 - [Learning Goals](#learning-goals)
