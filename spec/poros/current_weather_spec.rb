@@ -1,11 +1,11 @@
 require 'rails_helper'
 
-describe "Current Weather Poro" do
-  it "can create a current weather object" do
+describe 'Current Weather Poro' do
+  it 'can create a current weather object' do
     raw_data = File.read('spec/fixtures/weather_data_arvada.json')
     parsed_data = JSON.parse(raw_data, symbolize_names: true)
     current = parsed_data[:current]
-    
+
     current_weather = CurrentWeather.new(current)
     expect(current_weather).to be_a(CurrentWeather)
     expect(current_weather.datetime).to be_a(Time)

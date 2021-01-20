@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe Image do
-  it "can create an image object" do
+  it 'can create an image object' do
     location = 'arvada,co'
     raw_data = File.read('spec/fixtures/image_data_arvada.json')
     parsed_data = JSON.parse(raw_data, symbolize_names: true)
@@ -21,5 +21,4 @@ describe Image do
     expect(image.image[:credit]).to have_key(:author)
     expect(image.image[:credit][:author]).to be_a(String)
   end
-
 end

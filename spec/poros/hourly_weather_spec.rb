@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe HourlyWeather do
-  it "can create hourly weather objects" do
+  it 'can create hourly weather objects' do
     raw_data = File.read('spec/fixtures/weather_data_arvada.json')
     parsed_data = JSON.parse(raw_data, symbolize_names: true)
     hourly = parsed_data[:hourly][0..7].first
