@@ -58,12 +58,12 @@ describe " Forecast API" do
       expect(current_forecast).to_not have_key(:clouds)
       expect(current_forecast).to_not have_key(:pressure)
       # TESTING LIVE DATA FROM POSTMAN
-      # expect(current_forecast[:temperature]).to eq(35.94)
-      # expect(current_forecast[:feels_like]).to eq(26.17)
-      # expect(current_forecast[:humidity]).to eq(51)
-      # expect(current_forecast[:uvi]).to eq(0)
-      # expect(current_forecast[:conditions]).to eq('scattered clouds')
-      # expect(current_forecast[:icon]).to eq('03n')
+      expect(current_forecast[:temperature]).to eq(51.28)
+      expect(current_forecast[:feels_like]).to eq(19.6)
+      expect(current_forecast[:humidity]).to eq(19)
+      expect(current_forecast[:uvi]).to eq(2.14)
+      expect(current_forecast[:conditions]).to eq('few clouds')
+      expect(current_forecast[:icon]).to eq('02d')
 
       daily_forecast = forecast[:data][:attributes][:daily_weather]
       expect(daily_forecast).to be_a(Array)
@@ -86,10 +86,10 @@ describe " Forecast API" do
       expect(current_forecast).to_not have_key(:clouds)
       expect(current_forecast).to_not have_key(:pressure)
       # TESTING LIVE DATA FROM POSTMAN
-      # expect(daily_forecast.first[:max_temp]).to eq(44.22)
-      # expect(daily_forecast.first[:min_temp]).to eq(34.23)
-      # expect(daily_forecast.first[:conditions]).to eq('clear sky')
-      # expect(daily_forecast.first[:icon]).to eq('01d')
+      expect(daily_forecast.first[:max_temp]).to eq(51.28)
+      expect(daily_forecast.first[:min_temp]).to eq(32.07)
+      expect(daily_forecast.first[:conditions]).to eq('few clouds')
+      expect(daily_forecast.first[:icon]).to eq('02d')
 
       hourly_forecast = forecast[:data][:attributes][:hourly_weather]
       expect(hourly_forecast).to be_a(Array)
@@ -110,10 +110,10 @@ describe " Forecast API" do
       expect(current_forecast).to_not have_key(:clouds)
       expect(current_forecast).to_not have_key(:pressure)
       # TESTING LIVE DATA FROM POSTMAN
-      # expect(hourly_forecast.first[:temperature]).to eq(36.36)
-      # expect(hourly_forecast.first[:wind_speed]).to eq('3.85 mph')
-      # expect(hourly_forecast.first[:wind_direction]).to eq('from S')
-      # expect(hourly_forecast.first[:conditions]).to eq('scattered clouds')
-      # expect(hourly_forecast.first[:icon]).to eq('04n')
+      expect(hourly_forecast.first[:temperature]).to eq(51.28)
+      expect(hourly_forecast.first[:wind_speed]).to eq('2.86 mph')
+      expect(hourly_forecast.first[:wind_direction]).to eq('from S')
+      expect(hourly_forecast.first[:conditions]).to eq('few clouds')
+      expect(hourly_forecast.first[:icon]).to eq('02d')
     end
 end
