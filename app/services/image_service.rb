@@ -10,6 +10,6 @@ class ImageService
   end
 
   def self.conn
-    Faraday.new(url: "https://api.unsplash.com", headers: { 'Content-type' => 'application/json' })
+    Faraday.new(url: 'https://api.unsplash.com', headers: { 'Content-type' => 'application/json' })
   end
 end

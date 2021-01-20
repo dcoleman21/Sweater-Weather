@@ -1,6 +1,6 @@
 class ForecastService
   def self.forecast_by_coords(lat, lon)
-    response = conn.get("/data/2.5/onecall") do |req|
+    response = conn.get('/data/2.5/onecall') do |req|
       req.params['lat'] = lat
       req.params['lon'] = lon
       req.params['exclude'] = 'minutely,alerts'
@@ -8,7 +8,6 @@ class ForecastService
       req.params['units'] = 'imperial'
     end
     JSON.parse(response.body, symbolize_names: true)
-    #returns entire payload from openweather api
   end
 
   def self.conn

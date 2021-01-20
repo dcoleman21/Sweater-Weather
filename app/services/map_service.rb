@@ -1,6 +1,6 @@
 class MapService
   def self.get_coords_by_location(location)
-    response = conn.get("/geocoding/v1/address") do |req|
+    response = conn.get('/geocoding/v1/address') do |req|
       req.params['location'] = location
       req.params['key'] = ENV['MAP_QUEST_KEY']
     end
@@ -18,10 +18,10 @@ class MapService
       req.params['from'] = origin
       req.params['to'] = destination
     end
-    parsed = JSON.parse(response.body, symbolize_names: true)
+    JSON.parse(response.body, symbolize_names: true)
   end
 
   def self.conn
-    Faraday.new(url: "http://www.mapquestapi.com")
+    Faraday.new(url: 'http://www.mapquestapi.com')
   end
 end
