@@ -35,7 +35,7 @@ RSpec.describe UserFacade do
 
       user = UserFacade.create(params)
 
-      expect(User.count).to eq(4)
+      expect(User.count).to eq(1)
       expect(user).to be_a(User)
     end
   end
@@ -50,7 +50,7 @@ RSpec.describe UserFacade do
 
       user = UserFacade.create(params)
 
-      expect(User.count).to eq(3)
+      expect(User.count).to eq(0)
       expect(user.id).to eq(nil)
       expect(user.created_at).to eq(nil)
       expect(user.updated_at).to eq(nil)
@@ -69,7 +69,7 @@ RSpec.describe UserFacade do
       }
 
       user = UserFacade.create(params)
-      expect(User.count).to eq(4)
+      expect(User.count).to eq(1)
       expect(user.id).to eq(nil)
       expect(user.created_at).to eq(nil)
       expect(user.updated_at).to eq(nil)
