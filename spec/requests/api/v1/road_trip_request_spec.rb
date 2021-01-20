@@ -3,30 +3,6 @@ require 'rails_helper'
 describe "Road Trip API" do
   describe  "happy path" do
     it "returns road trip info in JSON format" do
-      json1 = File.read('spec/fixtures/route_data_arvada_apollo_beach.json')
-      stub_request(:get, "http://www.mapquestapi.com/directions/v2/route?from=Arvada,CO&key=#{ENV['MAP_QUEST_KEY']}&to=ApolloBeach,FL").
-         with(
-           headers: {
-       	  'Accept'=>'*/*',
-       	  'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
-       	  'User-Agent'=>'Faraday v1.3.0'
-           }).
-         to_return(status: 200, body: json1, headers: {})
-
-      json_response = File.read('spec/fixtures/route_data_apollo_beach.json')
-      stub_request(:get, "http://www.mapquestapi.com/geocoding/v1/address?key=#{ENV['MAP_QUEST_KEY']}&location=ApolloBeach,FL").
-        with(
-          headers: {
-         'Accept'=>'*/*',
-         'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
-         'User-Agent'=>'Faraday v1.3.0'
-          }).
-        to_return(status: 200, body: json_response, headers: {})
-
-        json2 = File.read('spec/fixtures/weather_data_apollo_beach.json')
-        stub_request(:get, "https://api.openweathermap.org/data/2.5/onecall?appid=#{ENV['OPEN_WEATHER_KEY']}&lat=27.763584&lon=-82.40031&exclude=minutely,alerts&units=imperial")
-          .to_return(status: 200, body: json2, headers: {})
-
       origin = 'Arvada,CO'
       destination = 'ApolloBeach,FL'
       api_key = SecureRandom.hex
@@ -37,13 +13,47 @@ describe "Road Trip API" do
                     api_key: api_key
                   )
 
-      headers = { 'CONTENT_TYPE' => 'application/json' }
+      headers = {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      }
 
       request_body = {
         "origin": origin,
         "destination": destination,
-        "api_key": api_key #70be3a7c67bf3b80453d64b3ee3eb857
+        "api_key": api_key
       }
+
+      json_response = File.read('spec/fixtures/route_data_arvada_apollo_beach.json')
+      stub_request(:get, "http://www.mapquestapi.com/directions/v2/route?from=Arvada,CO&key=#{ENV['MAP_QUEST_KEY']}&to=ApolloBeach,FL").
+        with(
+          headers: {
+         'Accept'=>'*/*',
+         'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
+         'User-Agent'=>'Faraday v1.3.0'
+          }).
+        to_return(status: 200, body: json_response, headers: {})
+
+      json1 = File.read('spec/fixtures/map_data_apollo_beach.json')
+      stub_request(:get, "http://www.mapquestapi.com/geocoding/v1/address?key=#{ENV['MAP_QUEST_KEY']}&location=ApolloBeach,FL").
+         with(
+           headers: {
+       	  'Accept'=>'*/*',
+       	  'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
+       	  'User-Agent'=>'Faraday v1.3.0'
+           }).
+         to_return(status: 200, body: json1, headers: {})
+
+      json2 = File.read('spec/fixtures/weather_data_apollo_beach.json')
+      stub_request(:get, "https://api.openweathermap.org/data/2.5/onecall?appid=#{ENV['OPEN_WEATHER_KEY']}&exclude=minutely,alerts&lat=27.763584&lon=-82.40031&units=imperial").
+        with(
+          headers: {
+      	  'Accept'=>'*/*',
+      	  'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
+      	  'Content-Type'=>'application/json',
+      	  'User-Agent'=>'Faraday v1.3.0'
+          }).
+        to_return(status: 200, body: json2, headers: {})
 
       post "/api/v1/road_trip", headers: headers, params: JSON.generate(request_body)
 
@@ -79,16 +89,6 @@ describe "Road Trip API" do
     end
 
     it "returns 'impossible route' if the travel time is impossible in JSON format" do
-      json_response = File.read('spec/fixtures/impossible_route.json')
-      stub_request(:get, "http://www.mapquestapi.com/geocoding/v1/address?key=R2mX9Awv6x8S7AdvPLwlfEK71TXOHQHV&location=Perth,AUS").
-         with(
-           headers: {
-       	  'Accept'=>'*/*',
-       	  'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
-       	  'User-Agent'=>'Faraday v1.3.0'
-           }).
-         to_return(status: 200, body: json_response, headers: {})
-
       origin = 'NewYork,NY'
       destination = 'Perth,AUS'
       api_key = SecureRandom.hex
@@ -107,9 +107,39 @@ describe "Road Trip API" do
       request_body = {
         "origin": origin,
         "destination": destination,
-        "api_key": api_key #70be3a7c67bf3b80453d64b3ee3eb857
+        "api_key": api_key
       }
 
+      json_response = File.read('spec/fixtures/impossible_route.json')
+      stub_request(:get, "http://www.mapquestapi.com/directions/v2/route?from=NewYork,NY&key=#{ENV['MAP_QUEST_KEY']}&to=Perth,AUS").
+         with(
+           headers: {
+       	  'Accept'=>'*/*',
+       	  'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
+       	  'User-Agent'=>'Faraday v1.3.0'
+           }).
+         to_return(status: 200, body: json_response, headers: {})
+
+      json1 = File.read('spec/fixtures/map_data_perth_aus.json')
+      stub_request(:get, "http://www.mapquestapi.com/geocoding/v1/address?key=#{ENV['MAP_QUEST_KEY']}&location=Perth,AUS").
+         with(
+           headers: {
+       	  'Accept'=>'*/*',
+       	  'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
+       	  'User-Agent'=>'Faraday v1.3.0'
+           }).
+         to_return(status: 200, body: json1, headers: {})
+
+      json2 = File.read('spec/fixtures/weather_data_perth.json')
+      stub_request(:get, "https://api.openweathermap.org/data/2.5/onecall?appid=#{ENV['OPEN_WEATHER_KEY']}&exclude=minutely,alerts&lat=-27.57436&lon=151.96477&units=imperial").
+        with(
+          headers: {
+      	  'Accept'=>'*/*',
+      	  'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
+      	  'Content-Type'=>'application/json',
+      	  'User-Agent'=>'Faraday v1.3.0'
+          }).
+        to_return(status: 200, body: json2, headers: {})
       post "/api/v1/road_trip", headers: headers, params: JSON.generate(request_body)
 
       expect(response).to be_successful
