@@ -142,8 +142,8 @@ bundle exec rspec
   
 * Request Example:
 ```ruby
-  GET /api/v1/forecast?location=denver,co
-  Content-Type: application/json
+ GET /api/v1/forecast?location=denver,co
+ Content-Type: application/json
  Accept: application/json
 ```
   
